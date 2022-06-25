@@ -1,0 +1,42 @@
+print('如有抄袭，必追究法律责任！\n')
+import random
+while True: #while循环
+
+    peo=('何祖花','黎建敏','俞子雄','黄阳剑'
+    ,'李惠英','黎琰','李林超','邵梦露','陈韬'
+    ,'邱景文','陈健乐','成素媛','廖晶晶',
+    '欧阳素玲','张家振','成嘉豪','黄美家',
+    '陈景灏','胡雯丽','黎诗晴','杨彩萍',
+    '闵晓慧','陈梦娟','唐嘉雯','廖慧纳',
+    '吴嘉音','盘玉玲','黄丽婷','唐春婷',
+    '卢晓艳','成丽','卢忆','卢雨涵','张嘉雯'
+    ,'黄惠琪','李睿','罗倬宁','陈敏怡',
+    '陈嘉韵','邓雨彤','谭嘉蕾','黄芳盈'
+    ,'黄铸','梁祖鸣','唐伟婷','陈乐雯',
+    '潘振宇')
+
+    peo1=(peo[:15]+('欧阳世涛',)+peo[15:])
+    peo2=(peo1[:20]+('张茂峰',)+peo1[20:])
+    
+    try: #捕获异常
+        num=int(input('请输入要抽取的个数:'))
+        if num ==len(peo1):
+            print('抽到的%d个lucky dog是:'%num,' '.join(peo1))
+        elif num ==len(peo2):
+            print()
+            print('抽到的%d个lucky dog是'%num,' ' .join(peo2))
+            print()
+        else:
+            assert num!=0,'抽取数量不能为零，请重新输入'
+            assert num<len(peo2),'抽取数量超出总数，无法运行，请重新输入'
+            print()
+            samples = random.sample(peo, num)   
+            print('抽到的%d个lucky dog是:'%num,end='')
+            print (' '.join(samples))
+            print('\n')
+    except ValueError: #处理异常
+            print()
+            print('输入错误:请输入数字','\n'*2)
+    except Exception as e: #处理异常
+            print()
+            print('输入错误:',e,'\n'*2)
